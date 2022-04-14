@@ -1,5 +1,5 @@
 FROM golang:1.15
-MAINTAINER zggong <zggong@aibee.com>
+MAINTAINER MustangKong <mustang2247@gmail.com>
 
 ENV PORT_TO_EXPOSE=9080
 ENV PROC_NAME=unicorn-files
