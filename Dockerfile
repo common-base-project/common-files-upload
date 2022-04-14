@@ -1,5 +1,5 @@
 FROM alpine
-MAINTAINER zggong <zggong@aibee.com>
+MAINTAINER MustangKong <mustang2247@gmail.com>
 
 ARG procname
 ARG packagefile

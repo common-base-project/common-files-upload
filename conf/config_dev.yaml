@@ -2,7 +2,7 @@ server:
   host: 0.0.0.0
   port: :9080
 db:
-  name: db_common_files
+  name: db_common-files-upload
   addr: 42.192.93.180:30305
   username: root
   password: mustang
@@ -18,17 +18,17 @@ log:
   maxbackups: 10
   localtime: 1
   compress: 1
-  fileName: unicorn-files.log
+  fileName: common-files-upload.log
 api:
   version: /api/v1
 jwt:
   secret: vz5(#pfnf+#p5ok&d2yrqd#)k0jz!#tb*$=^c5nl0(z+0=p5!9
 email:
   server: partner.outlook.cn
-  sender: eim@aibee.com
+  sender: eim@xxx.com
   password: abc!@#456
   port: 587
   security: true
-baseUrl: https://eim.aibee.cn/#
+baseUrl: https://eim.xxx.cn/#
 uploadUrl: http://127.0.0.1:9080/api/v1/upload/
 filePath: ./public/upload/

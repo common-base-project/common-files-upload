@@ -2,7 +2,7 @@ server:
   host: 0.0.0.0
   port: :9080
 db:
-  name: db_common_files
+  name: db_common-files-upload
   addr: mysqldb
   username: root
   password: mustang
@@ -18,17 +18,17 @@ log:
   maxbackups: 200
   localtime: 1
   compress: 1
-  fileName: unicorn-files.log
+  fileName: common-files-upload.log
 api:
   version: /api/v1
 jwt:
   secret: vz5(#pfnf+#p5ok&d2yrqd#)k0jz!#tb*$=^c5nl0(z+0=p5!9
 email:
   server: partner.outlook.cn
-  sender: eim@aibee.com
-  password: abc!@#456
+  sender: eim@xxx.com
+  password: xxx
   port: 587
   security: true
-baseUrl: https://my-test.aibee.cn/
-uploadUrl:  https://my-test.aibee.cn/api/unicorn-files/v1/upload/
+baseUrl: https://my-test.xxx.cn/
+uploadUrl:  https://my-test.xxx.cn/api/common-files-upload/v1/upload/
 filePath: /opt/public/upload/

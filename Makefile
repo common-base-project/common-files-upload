@@ -5,7 +5,7 @@ GOOS=linux
 GOARCH=amd64
 
 # 项目相关
-NAME=common-files
+NAME=common-files-upload
 PORT=9080
 COMMIT=$(shell git log -1 --pretty=format:%h)
 DEV_NAME=$(NAME)-$(COMMIT)
