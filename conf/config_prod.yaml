@@ -1,0 +1,34 @@
+server:
+  host: 0.0.0.0
+  port: :9080
+db:
+  name: db_common_files
+  addr: mysqldb
+  username: root
+  password: un1c0rnpaSsw0rd
+  gorm:
+    logMode: 0
+    maxOpenConn: 2000
+    maxIdleConn: 0
+    singularTable: 1
+log:
+  level: info
+  maxsize: 500
+  maxage: 30
+  maxbackups: 200
+  localtime: 1
+  compress: 1
+  fileName: unicorn-files.log
+api:
+  version: /api/v1
+jwt:
+  secret: vz5(#pfnf+#p5ok&d2yrqd#)k0jz!#tb*$=^c5nl0(z+0=p5!9
+email:
+  server: partner.outlook.cn
+  sender: eim@aibee.com
+  password: abc!@#456
+  port: 587
+  security: true
+baseUrl: https://my.aibee.cn/
+uploadUrl:  https://my.aibee.cn/api/unicorn-files/v1/upload/
+filePath: /opt/public/upload/

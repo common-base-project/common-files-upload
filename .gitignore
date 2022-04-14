@@ -1,0 +1,15 @@
+.idea
+.DS_Store
+vendor
+.git
+tmp
+log
+_docker
+_release
+./workflow
+./case
+
+/public/
+/log/
+unicorn-files
+.vscode

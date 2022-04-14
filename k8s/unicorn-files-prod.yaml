@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: unicorn-files
+  namespace: unicorn-efficiency-prod
+  labels:
+    app: unicorn-files
+    service: unicorn-files
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: unicorn-files
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: unicorn-unicorn-files
+  namespace: unicorn-efficiency-prod
+  labels:
+    account: unicorn-files
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unicorn-files-v1
+  namespace: unicorn-efficiency-prod
+  labels:
+    app: unicorn-files
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unicorn-files
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: unicorn-files
+        version: v1
+    spec:
+      serviceAccountName: unicorn-unicorn-files
+      containers:
+        - name: unicorn-files
+          image: registry.aibee.cn/qa/unicorn-files:prod_v0.0.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9080
+      tolerations:
+        - key: "key"
+          operator: "Equal"
+          value: "unicorn"
+      nodeSelector:
+        unicorn-efficiency-prod: "true"
+---
