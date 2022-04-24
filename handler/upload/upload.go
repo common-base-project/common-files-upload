@@ -22,9 +22,10 @@ import (
 
 // always return http.StatusOK
 type UploadResponse struct {
-	Code   int         `json:"errno"`
-	Errmsg string      `json:"errmsg"`
-	Data   interface{} `json:"data"`
+	Code    int         `json:"code"`
+	ErrCode int         `json:"errno"`
+	Errmsg  string      `json:"errmsg"`
+	Data    interface{} `json:"data"`
 }
 
 // @Summary 上传文件接口
@@ -103,15 +104,17 @@ func UploadMutiFileHandler(c *gin.Context) {
 
 	if isMultipart {
 		c.JSON(http.StatusOK, UploadResponse{
-			Code:   0,
-			Errmsg: "",
-			Data:   fileDataList,
+			Code:    200,
+			ErrCode: 0,
+			Errmsg:  "",
+			Data:    fileDataList,
 		})
 	} else {
 		c.JSON(http.StatusOK, UploadResponse{
-			Code:   0,
-			Errmsg: "",
-			Data:   fileDataList[0],
+			Code:    200,
+			ErrCode: 0,
+			Errmsg:  "",
+			Data:    fileDataList[0],
 		})
 	}
 }
