@@ -67,9 +67,9 @@ func UploadMutiFileHandler(c *gin.Context) {
 	}
 
 	if isMultipart {
-		Response(c, code.Success, fileDataList, "上传成功")
+		Response(c, nil, fileDataList, "上传成功")
 	} else {
-		Response(c, code.Success, fileDataList[0], "上传成功")
+		Response(c, nil, fileDataList[0], "上传成功")
 	}
 }
 

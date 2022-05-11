@@ -19,13 +19,6 @@ type ResponseData struct {
 	Data   interface{} `json:"data"`
 }
 
-//type UploadResponse struct {
-//	Code    int         `json:"code"`
-//	ErrCode int         `json:"errno"`
-//	Errmsg  string      `json:"errmsg"`
-//	Data    interface{} `json:"data"`
-//}
-
 func Response(c *gin.Context, err error, data interface{}, resultText string) {
 	code, message := httpCode.DecodeErr(err)
 

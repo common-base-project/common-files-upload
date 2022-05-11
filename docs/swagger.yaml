@@ -29,28 +29,19 @@ paths:
       responses:
         "0":
           description: ""
-      summary: 上传文件接口
       tags:
       - 文件
   /api/v1/web3/ipfs:
     get:
       consumes:
       - application/json
-      description: 上传文件接口
+      description: 查询文件接口
       parameters:
-      - description: 是否为多文件上传
-        in: query
-        name: isMultipart
-        type: string
-      - description: 上传文件类型 images/file/media
-        in: query
-        name: upload_type
-        type: string
       - description: 文件集
-        in: formData
-        name: file
+        in: query
+        name: cid
         required: true
-        type: file
+        type: string
       produces:
       - application/json
       responses:

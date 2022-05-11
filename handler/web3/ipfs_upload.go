@@ -99,13 +99,11 @@ func UploadMutiFileHandler(c *gin.Context) {
 		Response(c, code.UploadError, nil, "上传文件失败")
 		return
 	}
-	// 保存文件到db
-	//go saveFile(fileDataList)
 
 	if isMultipart {
-		Response(c, code.Success, fileDataList, "上传成功")
+		Response(c, nil, fileDataList, "上传成功")
 	} else {
-		Response(c, code.Success, fileDataList[0], "上传成功")
+		Response(c, nil, fileDataList[0], "上传成功")
 	}
 }
 
@@ -146,7 +144,7 @@ func GetFileUrlByCidHandler(c *gin.Context) {
 		}
 	}
 
-	Response(c, code.Success, data, "查询成功")
+	Response(c, nil, data, "查询成功")
 }
 
 func DeleteFileByCidHandler(c *gin.Context) {
@@ -163,5 +161,7 @@ func DeleteFileByCidHandler(c *gin.Context) {
 		}
 	}
 
-	Response(c, code.Success, cid, "删除成功")
+	// 删除文件
+
+	Response(c, nil, cid, "删除成功")
 }

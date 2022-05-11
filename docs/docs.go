@@ -39,7 +39,6 @@ var doc = `{
                 "tags": [
                     "文件"
                 ],
-                "summary": "上传文件接口",
                 "parameters": [
                     {
                         "type": "string",
@@ -70,7 +69,7 @@ var doc = `{
         },
         "/api/v1/web3/ipfs": {
             "get": {
-                "description": "上传文件接口",
+                "description": "查询文件接口",
                 "consumes": [
                     "application/json"
                 ],
@@ -83,21 +82,9 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "是否为多文件上传",
-                        "name": "isMultipart",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "上传文件类型 images/file/media",
-                        "name": "upload_type",
-                        "in": "query"
-                    },
-                    {
-                        "type": "file",
                         "description": "文件集",
-                        "name": "file",
-                        "in": "formData",
+                        "name": "cid",
+                        "in": "query",
                         "required": true
                     }
                 ],
