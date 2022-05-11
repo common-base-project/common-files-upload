@@ -23,6 +23,9 @@ func (File) TableName() string {
 }
 
 func (g *File) Create() (err error) {
+	if !connection.DbEnable {
+		return nil
+	}
 	if err = connection.DB.Self.Save(g).Error; err != nil {
 		logger.Error(err.Error())
 	}

@@ -18,7 +18,14 @@ type Database struct {
 
 var DB *Database
 
+// DbEnable 是否开启数据库存储
+var DbEnable bool
+
 func Initial() {
+	DbEnable = viper.GetBool("db.db_enable")
+	if !DbEnable {
+		return
+	}
 	DB.Init()
 }
 
@@ -78,12 +85,18 @@ func InitSelfDB() *gorm.DB {
 }
 
 func (db *Database) Init() {
+	if !DbEnable {
+		return
+	}
 	DB = &Database{
 		Self: InitSelfDB(),
 	}
 }
 
 func (db *Database) Close() {
+	if !DbEnable {
+		return
+	}
 	sqlDB, err := db.Self.DB()
 	if err != nil {
 		logger.Error(err.Error())

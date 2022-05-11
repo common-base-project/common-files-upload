@@ -10,7 +10,9 @@ import (
 )
 
 func AutoMigrateTable() {
-	connection.DB.Self.AutoMigrate(
-		&files.File{},
-	)
+	if connection.DbEnable {
+		connection.DB.Self.AutoMigrate(
+			&files.File{},
+		)
+	}
 }

@@ -1,18 +1,15 @@
 package code
 
-/*
-  @Author : zggong
-*/
-
 import "fmt"
 
 type Errno struct {
-	Errno  int
-	Errmsg string
+	ErrNo   int
+	ErrMsg  string
+	ErrData interface{}
 }
 
 func (err Errno) Error() string {
-	return err.Errmsg
+	return err.ErrMsg
 }
 
 // Err represents an error
@@ -23,7 +20,7 @@ type Err struct {
 }
 
 func New(errno *Errno, err error) *Err {
-	return &Err{Errno: errno.Errno, Errmsg: errno.Errmsg, Err: err}
+	return &Err{Errno: errno.ErrNo, Errmsg: errno.ErrMsg, Err: err}
 }
 
 func (err *Err) Add(message string) error {
@@ -42,16 +39,16 @@ func (err *Err) Error() string {
 
 func DecodeErr(err error) (int, string) {
 	if err == nil {
-		return Success.Errno, Success.Errmsg
+		return Success.ErrNo, Success.ErrMsg
 	}
 
 	switch typed := err.(type) {
 	case *Err:
 		return typed.Errno, typed.Errmsg
 	case *Errno:
-		return typed.Errno, typed.Errmsg
+		return typed.ErrNo, typed.ErrMsg
 	default:
 	}
 
-	return InternalServerError.Errno, err.Error()
+	return InternalServerError.ErrNo, err.Error()
 }

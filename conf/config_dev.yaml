@@ -2,8 +2,9 @@ server:
   host: 0.0.0.0
   port: :9080
 db:
-  name: db_common-files-upload
-  addr: 42.192.93.180:30305
+  db_enable: false
+  name: db_commonFiles
+  addr: localhost:3306
   username: root
   password: mustang
   gorm:
@@ -23,12 +24,16 @@ api:
   version: /api/v1
 jwt:
   secret: vz5(#pfnf+#p5ok&d2yrqd#)k0jz!#tb*$=^c5nl0(z+0=p5!9
+web3:
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEE2QTMyZUE5ZmJEM2QzNEM5N0VhMWE5ODEyNzFGMmI5ZGUyMDQ4ODkiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NTIyNTA1NjUyNjUsIm5hbWUiOiJ0ZXN0In0.mGBeVC5bN0vkkQOZvTxwe1eYrmrXtlYVIJZJxpkz_g8
 email:
   server: partner.outlook.cn
   sender: eim@xxx.com
   password: abc!@#456
   port: 587
   security: true
-baseUrl: https://eim.xxx.cn/#
-uploadUrl: http://127.0.0.1:9080/api/v1/upload/
-filePath: ./public/upload/
+
+#  访问静态文件路径
+uploadUrl: /api/v1/upload/
+#  上传文件路径
+filePath: ./upload/

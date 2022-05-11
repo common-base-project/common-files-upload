@@ -67,6 +67,84 @@ var doc = `{
                     }
                 }
             }
+        },
+        "/api/v1/web3/ipfs": {
+            "get": {
+                "description": "上传文件接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "文件"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "是否为多文件上传",
+                        "name": "isMultipart",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "上传文件类型 images/file/media",
+                        "name": "upload_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "file",
+                        "description": "文件集",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "description": "上传文件接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "文件"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "是否为多文件上传",
+                        "name": "isMultipart",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "上传文件类型 images/file/media",
+                        "name": "upload_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "file",
+                        "description": "文件集",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": ""
+                    }
+                }
+            }
         }
     }
 }`
@@ -86,7 +164,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "",
 	BasePath:    "",
 	Schemes:     []string{},
-	Title:       "工单系统API文档",
+	Title:       "文件统一上传API文档",
 	Description: "",
 }
 

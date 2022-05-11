@@ -36,7 +36,7 @@ var levelMap = map[string]zapcore.Level{
 	"fatal":  zapcore.FatalLevel,
 }
 
-// Filename: 日志文件的位置
+// Initial Filename: 日志文件的位置
 // MaxSize：在进行切割之前，日志文件的最大大小（以MB为单位）
 // MaxBackups：保留旧文件的最大个数
 // MaxAges：保留旧文件的最大天数

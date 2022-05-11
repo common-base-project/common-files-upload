@@ -1,11 +1,11 @@
-## 工单系统
+## 通用文件上传
 
     设置环境变量  export ENV_SERVER_MODE=dev
 
 ## 打包
     make docker-all VERSION="staging_v0.0.1" ENV_SERVER_MODE="staging"
     make docker-all VERSION="staging_v0.0.1" ENV_SERVER_MODE="dev"
-    make docker-all VERSION="prod_v0.0.3" ENV_SERVER_MODE="prod"
+    make docker-all VERSION="prod_v0.0.1" ENV_SERVER_MODE="prod"
 
 ## 生成`swagger`文档
 ```
