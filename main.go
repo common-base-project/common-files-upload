@@ -55,6 +55,7 @@ func main() {
 	router.Load(g)
 
 	// 运行程序
+	logger.Infof("程序启动：%s", viper.GetString(`server.port`))
 	err := g.Run(viper.GetString(`server.port`))
 	if err != nil {
 		logger.Error("启动失败")

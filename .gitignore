@@ -9,7 +9,9 @@ _release
 ./workflow
 ./case
 
+upload/
 /public/
 /log/
 unicorn-files
 .vscode
+common-files-upload

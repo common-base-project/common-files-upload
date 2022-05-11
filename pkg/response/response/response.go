@@ -14,8 +14,8 @@ import (
 )
 
 type ResponseData struct {
-	Errno  int         `json:"errno"`
-	Errmsg string      `json:"errmsg"`
+	Errno  int         `json:"code"`
+	Errmsg string      `json:"message"`
 	Data   interface{} `json:"data"`
 }
 
@@ -31,7 +31,7 @@ func Response(c *gin.Context, err error, data interface{}, resultText string) {
 	}
 
 	// write log
-	if code != httpCode.Success.Errno {
+	if code != httpCode.Success.ErrNo {
 		logger.Error(message)
 	}
 

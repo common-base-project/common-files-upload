@@ -8,7 +8,6 @@ import (
 /*
   @Author : zggong
 */
-
 type Param struct {
 	Name       string
 	Models     interface{}
@@ -18,8 +17,11 @@ type Param struct {
 }
 
 func whereDB(p *Param) (err error) {
+	if !connection.DbEnable {
+		return nil
+	}
 	db := connection.DB.Self
-	dataCount := 0
+	var dataCount int64 = 0
 	if p.WhereValue != "" {
 		db = db.Where("name = ?", p.WhereValue)
 	}
@@ -45,7 +47,9 @@ func whereDB(p *Param) (err error) {
 }
 
 func Create(p *Param) (err error) {
-
+	if !connection.DbEnable {
+		return nil
+	}
 	err = whereDB(p)
 	if err != nil {
 		return

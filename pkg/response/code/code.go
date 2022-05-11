@@ -6,108 +6,108 @@ package code
 
 var (
 	// 通用
-	InternalServerError = &Errno{Errno: 60001, Errmsg: "内部服务器错误"}
-	ExistError          = &Errno{Errno: 160003, Errmsg: "数据已存在"}
-	NotExistError       = &Errno{Errno: 10002, Errmsg: "数据不存在"}
-	ParamError          = &Errno{Errno: 10001, Errmsg: "参数不正确"}
-	BindError           = &Errno{Errno: 160006, Errmsg: "绑定失败"}
+	InternalServerError = &Errno{ErrNo: 60001, ErrMsg: "内部服务器错误"}
+	ExistError          = &Errno{ErrNo: 160003, ErrMsg: "数据已存在"}
+	NotExistError       = &Errno{ErrNo: 10002, ErrMsg: "数据不存在"}
+	ParamError          = &Errno{ErrNo: 10001, ErrMsg: "参数不正确"}
+	BindError           = &Errno{ErrNo: 160006, ErrMsg: "绑定失败"}
 
 	// 成功
-	Success = &Errno{Errno: 0, Errmsg: "请求成功"}
+	Success = &Errno{ErrNo: 0, ErrMsg: "请求成功"}
 
 	// 未知失败
-	UnknownError = &Errno{Errno: 199999, Errmsg: "未知错误"}
+	UnknownError = &Errno{ErrNo: 199999, ErrMsg: "未知错误"}
 
 	// namespace
-	CreateNameSpaceError = &Errno{Errno: 160001, Errmsg: "创建空间失败"}
-	UpdateNameSpaceError = &Errno{Errno: 160002, Errmsg: "更新空间失败"}
-	DeleteNameSpaceError = &Errno{Errno: 160003, Errmsg: "删除空间失败"}
-	SelectNameSpaceError = &Errno{Errno: 160005, Errmsg: "查询空间失败"}
+	CreateNameSpaceError = &Errno{ErrNo: 160001, ErrMsg: "创建空间失败"}
+	UpdateNameSpaceError = &Errno{ErrNo: 160002, ErrMsg: "更新空间失败"}
+	DeleteNameSpaceError = &Errno{ErrNo: 160003, ErrMsg: "删除空间失败"}
+	SelectNameSpaceError = &Errno{ErrNo: 160005, ErrMsg: "查询空间失败"}
 
 	// project
-	CreateProjectError = &Errno{Errno: 160011, Errmsg: "创建项目失败"}
-	UpdateProjectError = &Errno{Errno: 160012, Errmsg: "更新项目失败"}
-	DeleteProjectError = &Errno{Errno: 160013, Errmsg: "删除项目失败"}
-	SelectProjectError = &Errno{Errno: 160015, Errmsg: "查询项目失败"}
+	CreateProjectError = &Errno{ErrNo: 160011, ErrMsg: "创建项目失败"}
+	UpdateProjectError = &Errno{ErrNo: 160012, ErrMsg: "更新项目失败"}
+	DeleteProjectError = &Errno{ErrNo: 160013, ErrMsg: "删除项目失败"}
+	SelectProjectError = &Errno{ErrNo: 160015, ErrMsg: "查询项目失败"}
 
 	// template
-	CreateTemplateError = &Errno{Errno: 160021, Errmsg: "创建模版失败"}
-	UpdateTemplateError = &Errno{Errno: 160022, Errmsg: "更新模版失败"}
-	DeleteTemplateError = &Errno{Errno: 160023, Errmsg: "删除模版失败"}
-	SelectTemplateError = &Errno{Errno: 160025, Errmsg: "查询模版失败"}
+	CreateTemplateError = &Errno{ErrNo: 160021, ErrMsg: "创建模版失败"}
+	UpdateTemplateError = &Errno{ErrNo: 160022, ErrMsg: "更新模版失败"}
+	DeleteTemplateError = &Errno{ErrNo: 160023, ErrMsg: "删除模版失败"}
+	SelectTemplateError = &Errno{ErrNo: 160025, ErrMsg: "查询模版失败"}
 
 	// field
-	CreateFieldError = &Errno{Errno: 160031, Errmsg: "添加模版字段失败"}
-	UpdateFieldError = &Errno{Errno: 160032, Errmsg: "更新模版字段失败"}
-	DeleteFieldError = &Errno{Errno: 160033, Errmsg: "删除模版字段失败"}
-	SelectFieldError = &Errno{Errno: 160035, Errmsg: "查询模版字段失败"}
+	CreateFieldError = &Errno{ErrNo: 160031, ErrMsg: "添加模版字段失败"}
+	UpdateFieldError = &Errno{ErrNo: 160032, ErrMsg: "更新模版字段失败"}
+	DeleteFieldError = &Errno{ErrNo: 160033, ErrMsg: "删除模版字段失败"}
+	SelectFieldError = &Errno{ErrNo: 160035, ErrMsg: "查询模版字段失败"}
 
 	// workflow
-	CreateWorkflowError = &Errno{Errno: 160051, Errmsg: "创建工作流失败"}
-	UpdateWorkflowError = &Errno{Errno: 160052, Errmsg: "更新工作流失败"}
-	DeleteWorkflowError = &Errno{Errno: 160053, Errmsg: "删除工作流失败"}
-	SelectWorkflowError = &Errno{Errno: 160055, Errmsg: "查询工作流失败"}
+	CreateWorkflowError = &Errno{ErrNo: 160051, ErrMsg: "创建工作流失败"}
+	UpdateWorkflowError = &Errno{ErrNo: 160052, ErrMsg: "更新工作流失败"}
+	DeleteWorkflowError = &Errno{ErrNo: 160053, ErrMsg: "删除工作流失败"}
+	SelectWorkflowError = &Errno{ErrNo: 160055, ErrMsg: "查询工作流失败"}
 
 	// status
-	CreateStatusError = &Errno{Errno: 160061, Errmsg: "创建工作流状态失败"}
-	UpdateStatusError = &Errno{Errno: 160062, Errmsg: "更新工作流状态失败"}
-	DeleteStatusError = &Errno{Errno: 160063, Errmsg: "删除工作流状态失败"}
-	SelectStatusError = &Errno{Errno: 160065, Errmsg: "查询工作流状态失败"}
+	CreateStatusError = &Errno{ErrNo: 160061, ErrMsg: "创建工作流状态失败"}
+	UpdateStatusError = &Errno{ErrNo: 160062, ErrMsg: "更新工作流状态失败"}
+	DeleteStatusError = &Errno{ErrNo: 160063, ErrMsg: "删除工作流状态失败"}
+	SelectStatusError = &Errno{ErrNo: 160065, ErrMsg: "查询工作流状态失败"}
 
 	// transform
-	CreateTransformError = &Errno{Errno: 160071, Errmsg: "创建工作流流转失败"}
-	UpdateTransformError = &Errno{Errno: 160072, Errmsg: "更新工作流流转失败"}
-	DeleteTransformError = &Errno{Errno: 160073, Errmsg: "删除工作流流转失败"}
-	SelectTransformError = &Errno{Errno: 160075, Errmsg: "查询工作流流转失败"}
+	CreateTransformError = &Errno{ErrNo: 160071, ErrMsg: "创建工作流流转失败"}
+	UpdateTransformError = &Errno{ErrNo: 160072, ErrMsg: "更新工作流流转失败"}
+	DeleteTransformError = &Errno{ErrNo: 160073, ErrMsg: "删除工作流流转失败"}
+	SelectTransformError = &Errno{ErrNo: 160075, ErrMsg: "查询工作流流转失败"}
 
 	// ticket
-	SelectTicketError     = &Errno{Errno: 160081, Errmsg: "查询工单数据失败"}
-	ProcessingTicketError = &Errno{Errno: 160082, Errmsg: "处理工单失败"}
-	TransferTicketError   = &Errno{Errno: 160083, Errmsg: "转交工单失败"}
+	SelectTicketError     = &Errno{ErrNo: 160081, ErrMsg: "查询工单数据失败"}
+	ProcessingTicketError = &Errno{ErrNo: 160082, ErrMsg: "处理工单失败"}
+	TransferTicketError   = &Errno{ErrNo: 160083, ErrMsg: "转交工单失败"}
 
 	// ticket transform history
-	SelectHistoryError = &Errno{Errno: 160091, Errmsg: "获取工单流转历史错误"}
-	CreateHistoryError = &Errno{Errno: 160092, Errmsg: "创建工单流转历史错误"}
+	SelectHistoryError = &Errno{ErrNo: 160091, ErrMsg: "获取工单流转历史错误"}
+	CreateHistoryError = &Errno{ErrNo: 160092, ErrMsg: "创建工单流转历史错误"}
 
 	// ticket feedback
-	AddFeedbackError = &Errno{Errno: 160101, Errmsg: "添加工单注释或者留言失败"}
-	GetFeedbackError = &Errno{Errno: 160102, Errmsg: "查询工单注释或者留言失败"}
+	AddFeedbackError = &Errno{ErrNo: 160101, ErrMsg: "添加工单注释或者留言失败"}
+	GetFeedbackError = &Errno{ErrNo: 160102, ErrMsg: "查询工单注释或者留言失败"}
 
 	// group 1606xx
-	CreateGroupError = &Errno{Errno: 160601, Errmsg: "创建用户组失败"}
-	UpdateGroupError = &Errno{Errno: 160602, Errmsg: "更新用户组失败"}
-	DeleteGroupError = &Errno{Errno: 160603, Errmsg: "删除用户组失败"}
-	SelectGroupError = &Errno{Errno: 160604, Errmsg: "查询用户组失败"}
+	CreateGroupError = &Errno{ErrNo: 160601, ErrMsg: "创建用户组失败"}
+	UpdateGroupError = &Errno{ErrNo: 160602, ErrMsg: "更新用户组失败"}
+	DeleteGroupError = &Errno{ErrNo: 160603, ErrMsg: "删除用户组失败"}
+	SelectGroupError = &Errno{ErrNo: 160604, ErrMsg: "查询用户组失败"}
 
 	// user 1607xx
-	CreateUserError = &Errno{Errno: 170701, Errmsg: "创建用户失败"}
-	UpdateUserError = &Errno{Errno: 170702, Errmsg: "更新用户失败"}
-	DeleteUserError = &Errno{Errno: 170703, Errmsg: "删除用户失败"}
-	SelectUserError = &Errno{Errno: 170704, Errmsg: "查询用户失败"}
+	CreateUserError = &Errno{ErrNo: 170701, ErrMsg: "创建用户失败"}
+	UpdateUserError = &Errno{ErrNo: 170702, ErrMsg: "更新用户失败"}
+	DeleteUserError = &Errno{ErrNo: 170703, ErrMsg: "删除用户失败"}
+	SelectUserError = &Errno{ErrNo: 170704, ErrMsg: "查询用户失败"}
 
 	// depart 1608xx
-	CreateDepartError = &Errno{Errno: 160801, Errmsg: "创建部门失败"}
-	UpdateDepartError = &Errno{Errno: 160802, Errmsg: "更新部门失败"}
-	DeleteDepartError = &Errno{Errno: 160803, Errmsg: "删除部门失败"}
-	SelectDepartError = &Errno{Errno: 160804, Errmsg: "查询部门失败"}
+	CreateDepartError = &Errno{ErrNo: 160801, ErrMsg: "创建部门失败"}
+	UpdateDepartError = &Errno{ErrNo: 160802, ErrMsg: "更新部门失败"}
+	DeleteDepartError = &Errno{ErrNo: 160803, ErrMsg: "删除部门失败"}
+	SelectDepartError = &Errno{ErrNo: 160804, ErrMsg: "查询部门失败"}
 
 	// usergroup 1709xx
-	CreateUserGropuError = &Errno{Errno: 160901, Errmsg: "创建用户和组关联失败"}
-	UpdateUserGroupError = &Errno{Errno: 160902, Errmsg: "更新用户和组关联失败"}
-	DeleteUserGroupError = &Errno{Errno: 160903, Errmsg: "删除用户和组关联失败"}
-	SelectUserGroupError = &Errno{Errno: 160904, Errmsg: "查询用户和组关联失败"}
+	CreateUserGropuError = &Errno{ErrNo: 160901, ErrMsg: "创建用户和组关联失败"}
+	UpdateUserGroupError = &Errno{ErrNo: 160902, ErrMsg: "更新用户和组关联失败"}
+	DeleteUserGroupError = &Errno{ErrNo: 160903, ErrMsg: "删除用户和组关联失败"}
+	SelectUserGroupError = &Errno{ErrNo: 160904, ErrMsg: "查询用户和组关联失败"}
 
-	EndTicketError = &Errno{Errno: 160084, Errmsg: "结束工单失败"}
+	EndTicketError = &Errno{ErrNo: 160084, ErrMsg: "结束工单失败"}
 
 	// help
-	SelectHelpContentError = &Errno{Errno: 161001, Errmsg: "获取帮助文档失败"}
-	UpdateHelpContentError = &Errno{Errno: 161002, Errmsg: "更新帮助文档失败"}
+	SelectHelpContentError = &Errno{ErrNo: 161001, ErrMsg: "获取帮助文档失败"}
+	UpdateHelpContentError = &Errno{ErrNo: 161002, ErrMsg: "更新帮助文档失败"}
 
 	// upload
-	UploadError = &Errno{Errno: 161002, Errmsg: "文档上传失败"}
+	UploadError = &Errno{ErrNo: 161002, ErrData: nil, ErrMsg: "文档上传失败"}
 
 	// ticket data
-	ProcessingTicketDataError       = &Errno{Errno: 300001, Errmsg: "处理数据 失败"}
-	ProcessingTicketCreateDictError = &Errno{Errno: 300002, Errmsg: "创建目录 失败"}
-	ProcessingTicketDateError       = &Errno{Errno: 300003, Errmsg: "日期输入错误 失败"}
+	ProcessingTicketDataError       = &Errno{ErrNo: 300001, ErrMsg: "处理数据 失败"}
+	ProcessingTicketCreateDictError = &Errno{ErrNo: 300002, ErrMsg: "创建目录 失败"}
+	ProcessingTicketDateError       = &Errno{ErrNo: 300003, ErrMsg: "日期输入错误 失败"}
 )

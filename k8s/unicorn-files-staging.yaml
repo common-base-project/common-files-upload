@@ -16,34 +16,31 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: common-files-v1
+  name: common-files
   namespace: default
   labels:
     app: common-files
-    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: common-files
-      version: v1
   template:
     metadata:
       labels:
         app: common-files
-        version: v1
     spec:
       serviceAccountName: common-files
       containers:
-        - name: common-files
-          image: harbor.5qipa.com:6443/games/common-files:staging_v0.0.1
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 9080
+      - name: common-files
+        image: registry.cn-shenzhen.aliyuncs.com/game-center/common-files-upload:prod_v0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 9080
         volumeMounts:
           - name: upload-data
-            mountPath: /opt/public/upload/
+            mountPath: /upload/
       volumes:
         - name: upload-data
           persistentVolumeClaim:
-            claimName: test
+            claimName: common-files-pv-claim

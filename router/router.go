@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"time"
 	_ "unicorn-files/docs"
-	"unicorn-files/middleware"
 	"unicorn-files/pkg/logger"
 	result "unicorn-files/pkg/response/response"
 	"unicorn-files/pkg/tools"
@@ -75,8 +74,11 @@ func Load(g *gin.Engine) {
 	g.GET(fmt.Sprintf("%s%s", viper.GetString(`api.version`), "/swagger/*any"), ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// jwt 检查
-	g.Use(middleware.CheckToken())
+	//g.Use(middleware.CheckToken())
 
 	// upload
 	routers.UploadRouter(g)
+	// ipfs 文件上传和下载
+	routers.IPFSUploadRouter(g)
+
 }

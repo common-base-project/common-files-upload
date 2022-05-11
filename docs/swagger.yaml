@@ -2,7 +2,7 @@ info:
   contact:
     email: zggong@aibee.com
     name: Gong Zhigang
-  title: 工单系统API文档
+  title: 文件统一上传API文档
   version: 0.0.1
 paths:
   /api/v1/upload:
@@ -29,7 +29,49 @@ paths:
       responses:
         "0":
           description: ""
-      summary: 上传文件接口
+      tags:
+      - 文件
+  /api/v1/web3/ipfs:
+    get:
+      consumes:
+      - application/json
+      description: 查询文件接口
+      parameters:
+      - description: 文件集
+        in: query
+        name: cid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "0":
+          description: ""
+      tags:
+      - 文件
+    post:
+      consumes:
+      - application/json
+      description: 上传文件接口
+      parameters:
+      - description: 是否为多文件上传
+        in: query
+        name: isMultipart
+        type: string
+      - description: 上传文件类型 images/file/media
+        in: query
+        name: upload_type
+        type: string
+      - description: 文件集
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "0":
+          description: ""
       tags:
       - 文件
 swagger: "2.0"

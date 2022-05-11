@@ -1,11 +1,19 @@
-## 工单系统
+# 公共文件管理系统后台
+## 功能
+1. 支持文件上传到服务器
+2. 支持文件上传到 ipfs
+3. 支持文件上传并入库
+4. 支持文件下载
+5. 支持文件在线预览
 
+
+## 通用文件上传
     设置环境变量  export ENV_SERVER_MODE=dev
 
 ## 打包
     make docker-all VERSION="staging_v0.0.1" ENV_SERVER_MODE="staging"
     make docker-all VERSION="staging_v0.0.1" ENV_SERVER_MODE="dev"
-    make docker-all VERSION="prod_v0.0.3" ENV_SERVER_MODE="prod"
+    make docker-all VERSION="prod_v0.0.2" ENV_SERVER_MODE="prod"
 
 ## 生成`swagger`文档
 ```
@@ -19,7 +27,6 @@ make swagger
 
 # OR 使用swag命令
 swag init --generalInfo ./cmd/gin-admin/main.go --output ./internal/app/swagger
-
 swag init -g ./src/cmd/main.go
 
 ```
