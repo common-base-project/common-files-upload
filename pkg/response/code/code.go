@@ -13,7 +13,7 @@ var (
 	BindError           = &Errno{ErrNo: 160006, ErrMsg: "绑定失败"}
 
 	// 成功
-	Success = &Errno{ErrNo: 0, ErrMsg: "请求成功"}
+	Success = &Errno{ErrNo: 200, ErrMsg: "请求成功"}
 
 	// 未知失败
 	UnknownError = &Errno{ErrNo: 199999, ErrMsg: "未知错误"}
