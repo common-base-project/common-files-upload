@@ -1,4 +1,4 @@
-FROM golang:1.15
+FROM golang:1.8.1-alpine
 MAINTAINER MustangKong <mustang2247@gmail.com>
 
 ENV PORT_TO_EXPOSE=9080

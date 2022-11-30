@@ -33,7 +33,7 @@ func init() {
 // @version 0.0.1
 // @contact.name Gong Zhigang
 // @contact.email zggong@aibee.com
-// http://my-test.aibee.cn/api/unicorn-files/v1/swagger/index.html
+// http://localhost:9080/api/v1/swagger/index.html
 func main() {
 	// 同步用户和部门数据
 	go auth_rsync.Main()

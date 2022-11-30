@@ -15,6 +15,14 @@
     make docker-all VERSION="staging_v0.0.1" ENV_SERVER_MODE="dev"
     make docker-all VERSION="prod_v0.0.2" ENV_SERVER_MODE="prod"
 
+    docker buildx build --platform linux/amd64 --no-cache -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
+    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
+
+    docker build -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
+    docker build -f Dockerfile-prod -t registry.cn-hongkong.aliyuncs.com/game-center/common-files:staging_v0.0.1 .
+
+    docker run --rm -it -p 9080:9080 ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1
+
 ## 生成`swagger`文档
 ```
 Download Swag for Go by using:

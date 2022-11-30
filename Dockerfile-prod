@@ -1,0 +1,46 @@
+FROM --platform=$BUILDPLATFORM golang:1.18.8-buster AS builder
+
+MAINTAINER MustangKong <mustang2247@gmail.com>
+
+ENV PORT_TO_EXPOSE=9080
+ENV PROC_NAME=common-files
+ENV ENV_SERVER_MODE=prod
+
+#设置工作目录
+WORKDIR /opt/app
+# 将服务器的go工程代码加入到docker容器中
+COPY . .
+
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+RUN go mod tidy
+
+# go构建可执行文件
+#RUN go build .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $PROC_NAME -tags=jsoniter
+#RUN go build -o $PROC_NAME main.go
+
+
+# RUN
+FROM alpine
+
+ENV PORT_TO_EXPOSE=9080
+ENV PROC_NAME=common-files
+ENV ENV_SERVER_MODE=prod
+
+WORKDIR /opt/app
+
+COPY --from=builder /opt/app/$PROC_NAME .
+
+RUN mkdir -p /opt/app/conf
+COPY conf/ /opt/app/conf/
+
+VOLUME ["/opt/public/upload/"]
+
+#设置镜像的时区,避免出现8小时的误差
+COPY docker/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" >  /etc/timezone
+
+EXPOSE $PORT_TO_EXPOSE
+
+CMD ["sh", "-c", "./$PROC_NAME"]
+
