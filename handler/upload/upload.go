@@ -2,6 +2,7 @@ package upload
 
 import (
 	"fmt"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"unicorn-files/models/files"
@@ -20,7 +21,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param isMultipart query string false "是否为多文件上传"
-//// @Param upload_type query string false "上传文件类型 images/file/media"
+// // @Param upload_type query string false "上传文件类型 images/file/media"
 // @Param file formData file true "文件集"
 // @Success 0
 // @Router /api/v1/upload [post]
@@ -44,8 +45,10 @@ func UploadMutiFileHandler(c *gin.Context) {
 
 	var fileDataList []files.File
 	for _, file := range formFiles {
-		fileId := fmt.Sprintf("%s|%s", uuidString, file.Filename)
+		filename := filepath.Base(file.Filename)
+		fileId := fmt.Sprintf("%s%s", uuidString, filename)
 		err := c.SaveUploadedFile(file, fmt.Sprintf("%s%v", viper.GetString("filePath"), fileId))
+		//err := c.SaveUploadedFile(file, fileId)
 		if err != nil {
 			logger.Error(err)
 			continue
@@ -80,10 +83,10 @@ func saveFileToDB(fileId string, fileName string) (files.File, error) {
 		Url:      viper.GetString("uploadUrl") + fileId,
 		FileName: fileName,
 	}
-	if err := data.Create(); err != nil {
-		logger.Error(err.Error())
-		return data, err
-	}
+	//if err := data.Create(); err != nil {
+	//	logger.Error(err.Error())
+	//	return data, err
+	//}
 
 	return data, nil
 }

@@ -64,7 +64,7 @@ func Load(g *gin.Engine) {
 	logger.Infof("创建目录成功: %s", filePath)
 
 	staticPath := fmt.Sprintf("%s%s", viper.GetString(`api.version`), "/upload")
-	// 静态文件地址 http://localhost:port/api/v1/upload/fileid.jpg
+	//静态文件地址 http://localhost:port/api/v1/upload/fileid.jpg
 	g.Static(staticPath, filePath)
 
 	// g.POST("/api/v1/upload", upload.UploadMutiFileHandler)

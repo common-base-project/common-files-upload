@@ -22,6 +22,13 @@
     docker build -f Dockerfile-prod -t registry.cn-hongkong.aliyuncs.com/game-center/common-files:staging_v0.0.1 .
 
     docker run --rm -it -p 9080:9080 ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1
+## sipue
+    docker login harbor.test.sipue.cn --username=gongzhigang-sipue -p mtg1225988
+
+    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t harbor.test.sipue.cn/sipue/common-files:staging_v1.0.1 .
+    
+    docker push harbor.test.sipue.cn/sipue/common-files:staging_v1.0.1
+
 
 ## 生成`swagger`文档
 ```

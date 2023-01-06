@@ -34,4 +34,4 @@ email:
   security: true
 
 uploadUrl:  /api/v1/upload/
-filePath: /opt/public/upload/
+filePath: ./upload/

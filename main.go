@@ -7,12 +7,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"unicorn-files/models"
 	"unicorn-files/pkg/config"
 	_ "unicorn-files/pkg/config"
-	"unicorn-files/pkg/connection"
 	"unicorn-files/pkg/logger"
-	"unicorn-files/pkg/service/auth_rsync"
 	"unicorn-files/router"
 
 	"github.com/spf13/viper"
@@ -26,7 +23,7 @@ func init() {
 	config.Initial()
 	fmt.Println("#########2", config.EnvMode)
 	logger.Initial()
-	connection.Initial()
+	//connection.Initial()
 }
 
 // @title 文件统一上传API文档
@@ -36,10 +33,10 @@ func init() {
 // http://localhost:9080/api/v1/swagger/index.html
 func main() {
 	// 同步用户和部门数据
-	go auth_rsync.Main()
+	//go auth_rsync.Main()
 
 	// 同步数据结构
-	models.AutoMigrateTable()
+	//models.AutoMigrateTable()
 
 	g := gin.New()
 
@@ -62,5 +59,5 @@ func main() {
 		panic(fmt.Sprintf("程序启动失败：%v", err))
 	}
 
-	defer connection.DB.Close()
+	//defer connection.DB.Close()
 }
