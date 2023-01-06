@@ -51,6 +51,8 @@ func Load(g *gin.Engine) {
 	g.Use(cors.New(config))
 	//g.Use(logger.GinLogger(), logger.GinRecovery(true))
 	g.Use(utils.CostTime())
+	// 开启中间件 允许使用跨域请求
+	g.Use(Cors())
 
 	// ========================文件配置===============================
 	filePath := viper.GetString("filePath")
@@ -62,7 +64,7 @@ func Load(g *gin.Engine) {
 	logger.Infof("创建目录成功: %s", filePath)
 
 	staticPath := fmt.Sprintf("%s%s", viper.GetString(`api.version`), "/upload")
-	// 静态文件地址 http://localhost:port/api/v1/upload/fileid.jpg
+	//静态文件地址 http://localhost:port/api/v1/upload/fileid.jpg
 	g.Static(staticPath, filePath)
 
 	// g.POST("/api/v1/upload", upload.UploadMutiFileHandler)
@@ -81,4 +83,25 @@ func Load(g *gin.Engine) {
 	// ipfs 文件上传和下载
 	routers.IPFSUploadRouter(g)
 
+}
+
+func Cors() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		method := c.Request.Method
+		origin := c.Request.Header.Get("Origin") //请求头部
+		if origin != "" {
+			// 可将将* 替换为指定的域名
+			c.Header("Access-Control-Allow-Origin", "*")
+			c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, UPDATE")
+			c.Header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
+			c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Cache-Control, Content-Language, Content-Type")
+			c.Header("Access-Control-Allow-Credentials", "true")
+		}
+
+		if method == "OPTIONS" {
+			c.AbortWithStatus(http.StatusNoContent)
+		}
+
+		c.Next()
+	}
 }

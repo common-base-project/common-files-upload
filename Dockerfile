@@ -13,6 +13,7 @@ ENV ENV_SERVER_MODE=${modeenv}
 WORKDIR /opt/${procname}
 ADD $packagefile /opt/${procname}/
 RUN mkdir -p /opt/${procname}/conf
+
 VOLUME ["/opt/$PROC_NAME"]
 
 COPY Shanghai /etc/localtime

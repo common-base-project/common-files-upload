@@ -25,7 +25,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param isMultipart query string false "是否为多文件上传"
-//// @Param upload_type query string false "上传文件类型 images/file/media"
+// // @Param upload_type query string false "上传文件类型 images/file/media"
 // @Param file formData file true "文件集"
 // @Success 0
 // @Router /api/v1/web3/ipfs [post]
@@ -115,10 +115,10 @@ func saveFileToDB(fileId string, url string, fileName string, dst string) (files
 		FileName: fileName,
 		Memo:     dst,
 	}
-	if err := data.Create(); err != nil {
-		logger.Error(err.Error())
-		return data, err
-	}
+	//if err := data.Create(); err != nil {
+	//	logger.Error(err.Error())
+	//	return data, err
+	//}
 
 	return data, nil
 }
