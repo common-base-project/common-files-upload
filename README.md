@@ -16,19 +16,16 @@
     make docker-all VERSION="prod_v0.0.2" ENV_SERVER_MODE="prod"
 
     docker buildx build --platform linux/amd64 --no-cache -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
-    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
-
-    docker build -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1 .
+    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.2 .
     docker build -f Dockerfile-prod -t registry.cn-hongkong.aliyuncs.com/game-center/common-files:staging_v0.0.1 .
 
-    docker run --rm -it -p 9080:9080 ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.1
+    docker push ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.2
+
 ## sipue
-    docker login harbor.test.sipue.cn --username=gongzhigang-sipue -p mtg1225988
+    docker login harbor.test.sipue.cn --username=gongzhigang-sipue -p mtgxxxxx
 
-    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t harbor.test.sipue.cn/sipue/common-files:staging_v1.0.1 .
-    
-    docker push harbor.test.sipue.cn/sipue/common-files:staging_v1.0.1
-
+    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t harbor.test.sipue.cn/sipue/common-files:staging_v1.0.2 .
+    docker push harbor.test.sipue.cn/sipue/common-files:staging_v1.0.2
 
 ## 生成`swagger`文档
 ```

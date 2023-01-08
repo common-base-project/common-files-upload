@@ -33,5 +33,5 @@ email:
   port: 587
   security: true
 
-uploadUrl:  /api/v1/upload/
-filePath: ./upload/
+uploadUrl: /api/v1/upload/
+filePath: /opt/public/upload/
