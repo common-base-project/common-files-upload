@@ -68,8 +68,8 @@ func Load(g *gin.Engine) {
 	g.Static(staticPath, filePath)
 
 	// g.POST("/api/v1/upload", upload.UploadMutiFileHandler)
-	// 设置文件大小，文件最大为10M (默认 32 MiB)
-	g.MaxMultipartMemory = 5000 << 20 // 500M
+	// 设置文件大小，文件最大为10M (默认 32 MiB)	32 << 20
+	g.MaxMultipartMemory = 500 << 20 // 500M
 	// =======================================================
 
 	// swagger api docs
