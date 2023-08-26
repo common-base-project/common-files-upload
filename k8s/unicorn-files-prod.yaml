@@ -33,7 +33,7 @@ spec:
       serviceAccountName: common-files
       containers:
       - name: common-files
-        image: registry.cn-shenzhen.aliyuncs.com/game-center/common-files-upload:prod_v0.0.1
+        image: ccr.ccs.tencentyun.com/game-center/common-files:staging_v0.0.3
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 9080
