@@ -29,9 +29,9 @@ func Load(g *gin.Engine) {
 	// 404
 	g.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, result.ResponseData{
-			Errno:  404,
-			Errmsg: "API地址不存在",
-			Data:   nil,
+			Code: 404,
+			Msg:  "API地址不存在",
+			Data: nil,
 		})
 	})
 
