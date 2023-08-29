@@ -12,7 +12,8 @@ WORKDIR /opt/app
 # 将服务器的go工程代码加入到docker容器中
 COPY . .
 
-RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+#RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 RUN go mod tidy
 
 # go构建可执行文件
