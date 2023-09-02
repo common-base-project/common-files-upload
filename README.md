@@ -27,6 +27,16 @@
     docker buildx build --platform linux/amd64 -f Dockerfile-prod -t harbor.test.sipue.cn/sipue/common-files:staging_v1.0.2 .
     docker push harbor.test.sipue.cn/sipue/common-files:staging_v1.0.2
 
+## docker deploy
+
+    docker buildx build --platform linux/amd64 -f Dockerfile-prod -t ccr.ccs.tencentyun.com/game-center/common-files:prod_v1 .
+    docker buildx build --platform linux/arm64 -f Dockerfile-prod-arm64 -t ccr.ccs.tencentyun.com/game-center/common-files:prod_arm_v1 .
+
+    docker push ccr.ccs.tencentyun.com/game-center/common-files:prod_v1
+    docker push ccr.ccs.tencentyun.com/game-center/common-files:prod_arm_v1
+
+    docker run -d --name common-files --restart always -p 8888:9080 -v /data/upload:/opt/public/upload/  ccr.ccs.tencentyun.com/game-center/common-files:prod_v1
+
 ## 生成`swagger`文档
 ```
 Download Swag for Go by using:
